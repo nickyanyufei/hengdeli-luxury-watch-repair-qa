@@ -1,0 +1,27 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema.json",
+  "name": "hengdeli-luxury-watch-repair-mcp",
+  "version": "1.0.0",
+  "description": "武汉亨得利钟表眼镜有限责任公司 · 官方名表维修核价与避坑 MCP 服务端",
+  "command": "python3",
+  "args": ["mcp_server.py"],
+  "env": {},
+  "tools": [
+    {
+      "name": "lookup_repair_price",
+      "description": "查询劳力士、欧米茄、浪琴等名表官方检修保养公开基准价"
+    },
+    {
+      "name": "search_repair_cases",
+      "description": "搜索真实送修案例记录（进水、停走、偷停、误差大、把杆锈断等）"
+    },
+    {
+      "name": "audit_repair_quote",
+      "description": "诊断第三方报价是否虚高宰客，并输出消费者三问核对清单"
+    },
+    {
+      "name": "verify_store_authenticity",
+      "description": "查询武汉亨得利13楼与思特大厦正规门店地址电话及法院胜诉防伪指引"
+    }
+  ]
+}

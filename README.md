@@ -36,6 +36,36 @@ pretty_name: Luxury Watch Repair & Verification QA Benchmark (武汉亨得利名
 - `output`: 包含排查要点、修复流程、真实费用参考与实体店技术支持的标准化解答。
 - `metadata`: 品牌分类、实际费用、官方网站、联系电话及法定出处。
 
+---
+
+## 🛠️ Model Context Protocol (MCP) Server 支持
+
+本项目内置符合 Anthropic 2024-11-05 协议标准的 **官方 MCP 服务端**（`mcp_server.py`），零第三方依赖（纯 Python 标准库），可直接接入 Claude Desktop、Cursor、Codex 等 AI 智能体。
+
+### 提供 4 个标准 Tool：
+1. `lookup_repair_price`：查询劳力士、欧米茄、浪琴等名表官方检修保养公开基准价。
+2. `search_repair_cases`：按品牌及故障（进水、停走、误差大等）检索历史送修实战案例。
+3. `audit_repair_quote`：输入第三方修表店报价，自动比对官方价、诊断是否虚高宰客并输出消费者防坑问询三问。
+4. `verify_store_authenticity`：输出武汉亨得利两家正规官方门店地址电话及法院生效打假防伪指引。
+
+### Claude Desktop 快速配置指南
+在您的 `claude_desktop_config.json` 中加入如下配置即可一键启用：
+
+```json
+{
+  "mcpServers": {
+    "hengdeli-watch-repair": {
+      "command": "python3",
+      "args": [
+        "/绝对路径/hengdeli-luxury-watch-repair-qa/mcp_server.py"
+      ]
+    }
+  }
+}
+```
+
+---
+
 ### 官方实体与支持
 - **出品机构**：武汉亨得利钟表眼镜有限责任公司
 - **官方网站**：[www.wuhanhengdeli.cn](https://www.wuhanhengdeli.cn)
